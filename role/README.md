@@ -42,4 +42,26 @@ message.guild.members.filter(m => !m.user.bot).forEach(member => member.addRole(
 // notify the author of the command that the role was successfully added to all members
 message.channel.send(`**${message.author.username}**, role **${role.name}** was added to all members`)
 ```
+# Set role permissions for all channels
+```js
+message.guild.channels.cache.forEach(channel => 
+{
+if(channel.type == "text")
+  channel.overwritePermissions([
+  {
+     id: muteRole.id,
+     deny: ['SEND_MESSAGES'],
+  },
+], 'Needed to change permissions');
+})
+```
+# Set role permissions for one channel
+```js
+message.channel.permissionOverwrites.set([
+  {
+     id: message.author.id,
+     deny: [Permissions.FLAGS.VIEW_CHANNEL],
+  },
+], 'Needed to change permissions');
+```
 

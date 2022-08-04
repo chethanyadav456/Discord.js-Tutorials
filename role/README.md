@@ -18,10 +18,13 @@ const role = message.guild.roles.cache.find(r => r.id === "Role ID");
 
 message.author.roles.add(role);
 ```
-# get all members with role
+# Get all members with role
 ```js
 //outputs the IDs of all members with the specified role as an array
 
-// === discord.js v13 ===
 message.guild.roles.cache.get('ROLE-ID').members.map(m=>m.user.id);
+```
+# Find role by name
+```js
+let role = message.guild.roles.cache.find(role => role.name === "Rolename");
 ```

@@ -26,5 +26,5 @@ message.guild.roles.cache.get('ROLE-ID').members.map(m=>m.user.id);
 ```
 # Find role by name
 ```js
-let role = message.guild.roles.cache.find(role => role.name === "Rolename");
+const role = message.guild.roles.cache.find(role => role.name === "Rolename");
 ```

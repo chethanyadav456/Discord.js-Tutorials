@@ -28,3 +28,18 @@ message.guild.roles.cache.get('ROLE-ID').members.map(m=>m.user.id);
 ```js
 const role = message.guild.roles.cache.find(role => role.name === "Rolename");
 ```
+# Give role to all members
+```js
+// find the role with the name "Community"
+const role = message.guild.roles.find(r => r.name == 'Community')
+
+// if role doesn't exist, notify the author of command that the role couldn't be found
+if (!role) return message.channel.send(`**${message.author.username}**, role not found`)
+
+// find all guild members that aren't bots, and add the "Community" role to each
+message.guild.members.filter(m => !m.user.bot).forEach(member => member.addRole(role))
+
+// notify the author of the command that the role was successfully added to all members
+message.channel.send(`**${message.author.username}**, role **${role.name}** was added to all members`)
+```
+

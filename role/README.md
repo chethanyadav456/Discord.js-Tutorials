@@ -9,3 +9,10 @@ const member = message.mentions.members.first();
 
 // Add role to the member
 member.roles.add(role);```
+
+# Add a role to yourself
+
+```js
+const role = message.guild.roles.cache.find(r => r.id === "Role ID");
+
+message.author.roles.add(role);```

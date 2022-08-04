@@ -8,7 +8,8 @@ const role = message.guild.roles.cache.find(r => r.id === "Role ID");
 const member = message.mentions.members.first();
 
 // Add role to the member
-member.roles.add(role);```
+member.roles.add(role);
+```
 
 # Add a role to yourself
 
